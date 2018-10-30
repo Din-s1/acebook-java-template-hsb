@@ -59,7 +59,7 @@ class MyForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: '',
+      content: '',
       submit: ''
     };
     this.handleChange = this.handleChange.bind(this);
@@ -67,18 +67,18 @@ class MyForm extends React.Component {
   }
         componentWillMount() {
     // change code below this line
-      {console.log(this.state.input)}
+      {console.log(this.state.content)}
     // change code above this line
   }
   handleChange(event) {
     this.setState({
-      input: event.target.value
+      content: event.target.value
     });
   }
   handleSubmit(event) {
     // change code below this line
     event.preventDefault()
-    fetch('http://localhost:8080',{
+    fetch('/api/posts',{
         method: "POST",
         body: JSON.stringify(this.state.content),
         headers: {
@@ -87,7 +87,7 @@ class MyForm extends React.Component {
         },
       }).then(response => {
         response.json().then(data =>{
-          console.log("Post successful" + JSON.stringify(data));
+          console.log("Post successful" + JSON.stringify(data) + "This is saved in this.state.content       " + this.state.content);
         })
     })
 
@@ -103,7 +103,7 @@ class MyForm extends React.Component {
           <button type='submit'>Submit!</button>
         </form>
         { /* change code below this line */ }
-          <h1>{this.state.submit}</h1>
+          <h1>{this.state.content}</h1>
         { /* change code above this line */ }
       </div>
     );
