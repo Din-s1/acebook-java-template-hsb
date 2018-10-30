@@ -1,5 +1,6 @@
 import React from 'react';
 import Posts from './posts'
+import PostContainer from './post_frontend'
 const client = require('../client');
 
 class PostsBuilder extends React.Component {
@@ -16,7 +17,10 @@ class PostsBuilder extends React.Component {
 
 	render() {
 		return (
+      <div>
       <Posts posts={this.state.posts}/>
+      <PostContainer />
+      </div>
 		)
 	}
 }
