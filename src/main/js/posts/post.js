@@ -4,6 +4,7 @@ import Comment from './comment'
 class Post extends React.Component {
     constructor(props) {
     super(props);
+    console.log(this.props.post)
     }
 
     render(){

@@ -4,8 +4,10 @@ const client = require('../client');
 class Comment extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.post_id = this.props.post.post_id)
-        console.log(this.props.post)
+    this.url = this.post_id = this.props.post._links.post.href
+
+    this.id =  this.url.charAt(this.url.length-1);
+    console.log(this.id)
 
     this.submit = this.submit.bind(this)
 
@@ -13,7 +15,7 @@ class Comment extends React.Component {
 
   submit(){
   let that = this;
-        let newComment = document.getElementById("newComment").value;
+        var newComment = document.getElementById("newComment").value;
         fetch('api/comments', {
           method: "POST",
           body: JSON.stringify(newComment),
@@ -25,6 +27,7 @@ class Comment extends React.Component {
                 console.log(this.props)
           response.json().then(data => {
             that.props.setpost()
+            document.getElementById("user-comment").append(newComment);
             console.log("Comment successful" + JSON.stringify(data));
           })
         })
@@ -32,7 +35,9 @@ class Comment extends React.Component {
 
   render() {
     return (
+
       <div className="comment-main">
+        <div id="user-comment"></div>
         <textarea id="newComment" placeholder="Enter your comment here"></textarea>
         <button onClick={() => this.submit()}>post comment</button>
       </div>
