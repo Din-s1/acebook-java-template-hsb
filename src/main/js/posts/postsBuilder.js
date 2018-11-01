@@ -17,9 +17,18 @@ class PostsBuilder extends React.Component {
   }
 
   setNewPost(){
-    client({method: 'GET', path: '/api/posts'}).then(response => {
-      this.setState({posts: response.entity._embedded.posts});
+//    let posts = postRepository.findAll();
+    //console.log(posts);
 
+    client({method: 'GET', path: '/acebook/posts'}).then(response => {
+            console.log(response)
+          this.setState({posts: response.entity});
+
+
+//    client({method: 'GET', path: '/api/posts'}).then(response => {
+//      this.setState({posts: response.entity._embedded.posts.reverse});
+
+//    this.setState({posts: postRepository.findAll()});
       const posts = this.state.posts
       let newPostList = posts.reverse()
 

@@ -9,10 +9,25 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
-//    List<Post> findAllByOrderBycreatedAtAsc(Date created_at);
+
+    void delete(Post deleted);
+
+    List<Post> findAll();
+
+//    Optional<Post> findOne(Long post_id);
+
+
+
+    Post save(Post persisted);
+
+//    @Override
+//    Optional<Post> findById(Long aLong);
+
+    //    List<Post> findAllByOrderBycreatedAtAsc(Date created_at);
 //    public List<Post> findBy(Date createdAt, Sort sort);
 //    Post findBycreatedAt(Date createdAt);
 //    List<Date> findBypost_idOrderByDateDesc(Date createdAt);

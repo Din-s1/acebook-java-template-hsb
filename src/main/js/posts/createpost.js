@@ -12,7 +12,7 @@ class CreatePost extends React.Component {
 
     submit(){
       let newPost = document.getElementById("newPost").value;
-      fetch('api/posts', {
+      fetch('acebook/posts', {
         method: "POST",
         body: JSON.stringify(newPost),
         headers: {

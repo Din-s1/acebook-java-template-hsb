@@ -75,4 +75,9 @@ public class Post {
     public void setAuthor(User author) {
         this.author = author;
     }
+
+//    @Override
+//    public String toString(){
+//        return
+//    }
 }
