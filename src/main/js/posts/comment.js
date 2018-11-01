@@ -14,9 +14,14 @@ class Comment extends React.Component {
 
   }
 
+  componentDidUpdate() {
+    that.props.setpost()
+  }
+
   submit(){
   let that = this;
         var newComment = document.getElementById("newComment").value;
+        console.log(that.props.post.post_id)
 //        fetch('api/comments', {
 //          method: "POST",
 //          body: JSON.stringify(newComment),
@@ -33,7 +38,8 @@ class Comment extends React.Component {
 //          })
 //        })
 
-        fetch('/acebook/posts +this.props.post_id +comments', {
+        fetch('/acebook/posts/' + that.props.post.post_id + '/comments', {
+                  console.log("i am inside the comments fetch function")
                   method: "POST",
                   body: JSON.stringify(newComment),
                   headers: {
@@ -41,10 +47,11 @@ class Comment extends React.Component {
                     'Content-Type': 'application/json'
                   },
                 }).then(response => {
-                        console.log(this.props)
                   response.json().then(data => {
+                  console.log("************")
                     that.props.setpost()
                     document.getElementById("user-comment").append(newComment);
+                    console.log("**************")
                     console.log("Comment successful" + JSON.stringify(data));
                   })
                 })

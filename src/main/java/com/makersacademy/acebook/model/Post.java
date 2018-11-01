@@ -32,7 +32,13 @@ public class Post {
     private User author;
 
     @OneToMany(mappedBy = "parent")
+//    @JoinColumn(name = "parent_post_id")
     private List<Comment> commentList = new ArrayList<>();
+
+    public void addComment(Comment comment) {
+        this.commentList.add(comment);
+        comment.setParent(this);
+    }
 
     private Post() {}
 

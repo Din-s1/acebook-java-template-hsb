@@ -20,9 +20,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
 //    Optional<Post> findOne(Long post_id);
 
-
-
-    Post save(Post persisted);
+    //Post save(Post persisted);
 
 //    @Override
 //    Optional<Post> findById(Long aLong);

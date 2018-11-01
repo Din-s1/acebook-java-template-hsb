@@ -1,5 +1,7 @@
 import React from 'react';
 import Comment from './comment'
+//import CommentsBuilder from '../comments/commentsBuilder'
+
 
 class Post extends React.Component {
     constructor(props) {

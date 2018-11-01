@@ -31,15 +31,15 @@ public class CommentController {
 //    }
 //
 //
-//    @PostMapping("/posts/{parent_post_id}/comments")
-//    public Comment addComment(@PathVariable (value= "parent_post_id") Long parent_post_id, @Valid @RequestBody Comment comment){
-//        return postRepository.findById(parent_post_id).map(post -> {
-//            comment.setParent(post);
-//            return commentRepository.save(comment);
-//        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + parent_post_id + " not found"));
-//
+    @PostMapping("/posts/{parent_post_id}/comments")
+    public Comment addComment(@PathVariable (value= "parent_post_id") Long parent_post_id, @Valid @RequestBody Comment comment){
+        return postRepository.findById(parent_post_id).map(post -> {
+            comment.setParent(post);
+            return commentRepository.save(comment);
+        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + parent_post_id + " not found"));
+
 ////        comment.setParent(postRepository.findById(parent_post_id).get());
 ////        return commentRepository.save(comment);
-//    }
+    }
 
 }
