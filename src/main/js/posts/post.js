@@ -1,6 +1,6 @@
 import React from 'react';
 import Comment from './comment'
-//import CommentsBuilder from '../comments/commentsBuilder'
+import CommentsBuilder from '../comments/commentsBuilder'
 
 
 class Post extends React.Component {
@@ -17,6 +17,7 @@ class Post extends React.Component {
                         {this.props.post.content}
             </div>
             <div>{date}</div>
+            <div><CommentsBuilder post={this.props.post} /></div>
             <div><Comment post={this.props.post} setpost = {this.props.setpost}/></div>
         </div>
         )

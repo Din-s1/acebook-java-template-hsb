@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-    //List<Comment> findByParentPostId(Long parent_post_id);
+    List<Comment> findByParent(Long parent_post_id);
 
 //    @Query(value = "SELECT posts.post_id FROM posts where post_id = :id")
 //    Optional<Comment> findById(@Param("id") Long id);

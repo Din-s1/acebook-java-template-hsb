@@ -25,10 +25,10 @@ public class CommentController {
     @Autowired
     private CommentRepository commentRepository;
 
-//    @GetMapping("/posts/{post_id}/comments")
-//    public List<Comment> getPostComments(@PathVariable Long post_id){
-//        return commentRepository.findByParentPostId(post_id);
-//    }
+    @GetMapping("/posts/{post_id}/comments")
+    public List<Comment> getPostComments(@PathVariable (value= "post_id") Long post_id){
+        return commentRepository.findByParent(post_id);
+    }
 //
 //
     @PostMapping("/posts/{parent_post_id}/comments")

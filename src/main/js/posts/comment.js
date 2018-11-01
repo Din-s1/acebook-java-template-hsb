@@ -4,42 +4,39 @@ const client = require('../client');
 class Comment extends React.Component {
   constructor(props) {
     super(props);
-//    this.url =  this.props.post..post.href
     this.id =this.props.post.post_id
-
-//    this.id =  this.url.charAt(this.url.length-1);
     console.log(this.id)
-
     this.submit = this.submit.bind(this)
 
   }
 
   componentDidUpdate() {
-    that.props.setpost()
+    this.props.setpost()
   }
 
   submit(){
   let that = this;
         var newComment = document.getElementById("newComment").value;
         console.log(that.props.post.post_id)
-//        fetch('api/comments', {
-//          method: "POST",
-//          body: JSON.stringify(newComment),
-//          headers: {
-//            'Accept': 'application/json',
-//            'Content-Type': 'application/json'
-//          },
-//        }).then(response => {
-//                console.log(this.props)
-//          response.json().then(data => {
-//            that.props.setpost()
-//            document.getElementById("user-comment").append(newComment);
-//            console.log("Comment successful" + JSON.stringify(data));
-//          })
-//        })
+
+//        fetch('/acebook/posts/' + that.props.post.post_id + '/comments', {
+//                          console.log("i am inside the comments fetch function")
+//                          method: "POST",
+//                          body: JSON.stringify(newComment),
+//                          headers: {
+//                            'Accept': 'application/json',
+//                            'Content-Type': 'application/json'
+//                          },
+//                        }).then(() => {
+//                          console.log("************")
+//                            that.props.setpost()
+//                            document.getElementById("user-comment").append(newComment);
+//                            console.log("**************")
+//                            console.log("Comment successful" + JSON.stringify(data));
+//                          });
+//                        })
 
         fetch('/acebook/posts/' + that.props.post.post_id + '/comments', {
-                  console.log("i am inside the comments fetch function")
                   method: "POST",
                   body: JSON.stringify(newComment),
                   headers: {
@@ -55,7 +52,6 @@ class Comment extends React.Component {
                     console.log("Comment successful" + JSON.stringify(data));
                   })
                 })
-
    }
 
   render() {
