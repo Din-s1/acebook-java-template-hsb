@@ -31,10 +31,10 @@ public class Post {
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     private User author;
 
-    @OneToMany(mappedBy = "parent")
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> commentList = new ArrayList<>();
 
-    private Post() {}
+    public Post() {}
 
     public Post(String content) {
         this.content = content;

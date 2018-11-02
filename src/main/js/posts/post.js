@@ -5,6 +5,7 @@ class Post extends React.Component {
     constructor(props) {
     super(props);
     this.onDelete = this.onDelete.bind(this)
+    console.log(this.props.post)
     }
 
   onDelete(post) {

@@ -29,8 +29,20 @@ public class Comment {
     @ManyToOne(optional = true)
     private User author;
 
-    @ManyToOne(optional = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
     private Post parent;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Comment )) return false;
+        return comment_id != null && comment_id.equals(((Comment) o).comment_id);
+    }
+    @Override
+    public int hashCode() {
+        return 31;
+    }
 
     private Comment() {}
 

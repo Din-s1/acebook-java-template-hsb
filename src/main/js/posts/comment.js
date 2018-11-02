@@ -4,7 +4,7 @@ const client = require('../client');
 class Comment extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.post_id = this.props.post.post_id)
+    console.log("*************" + this.props.post.post_id)
         console.log(this.props.post)
 
     this.submit = this.submit.bind(this)
@@ -14,7 +14,8 @@ class Comment extends React.Component {
   submit(){
   let that = this;
         let newComment = document.getElementById("newComment").value;
-        fetch('api/comments', {
+        console.log(this.props)
+        fetch(this.props.post._links.self.href + '/comments', {
           method: "POST",
           body: JSON.stringify(newComment),
           headers: {
