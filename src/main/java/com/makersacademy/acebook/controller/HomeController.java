@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 
+
 @Controller
 @RequestMapping("/api")
 public class HomeController {
@@ -21,14 +22,14 @@ public class HomeController {
 	public String index() {
 		return "index";
 	}
-
-
-
+//
+//
+//
 //	@GetMapping(path = "/api/posting")
 //	public String homeInit(Post post) {
 //		return "posting";
 //	}
-
+//
 //	@PostMapping(path = "/api/posting")
 //	public Post createPost(@Valid @RequestBody Post post) {
 //		return postRepository.save(post);
